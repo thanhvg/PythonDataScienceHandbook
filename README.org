@@ -1,0 +1,15 @@
+#+STARTUP:    align fold nodlcheck hidestars oddeven lognotestate indent 
+
+Learning with =ipython=
+
+python notebook is bloated and doesn't encourage users to code and experiment
+
+with =ipython=, users can have more freedom to play with the learning material
+
+* set up virtual environment
+#+begin_src sh
+  mkvirtualenv pydatascihandbook
+  pip install -r requirements.txt
+#+end_src
+* note for Spacemacs
+Make sure that Spacemacs will use =ipython= as the repl
