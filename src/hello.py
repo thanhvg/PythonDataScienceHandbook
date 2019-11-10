@@ -23,9 +23,48 @@ L = np.random.random(100)
 data = pd.read_csv('../notebooks/data/president_heights.csv')
 heights = np.array(data['height(cm)'])
 
+# show as window pop up with TkAgg backend
 matplotlib.use('TkAgg')
+
 plt.hist(heights)
 plt.title('US Pres heights')
 plt.xlabel('Height cm')
 plt.ylabel('number')
+plt.show()
+
+a = np.array([0, 1, 2])
+b = np.array([5, 5, 5])
+a + b
+
+x = np.linspace(0, 5, 50)
+y = np.linspace(0, 5, 50)[:, np.newaxis]
+z = np.sin(x) ** 10 + np.cos(10 + y * x) * np.cos(x)
+
+plt.imshow(z, origin='lower', extent=[0, 5, 0, 5], cmap='viridis')
+plt.show()
+
+rainfall = pd.read_csv('../notebooks/data/Seattle2014.csv')['PRCP'].values
+
+inches = rainfall / 254
+inches.shape
+
+plt.hist(inches, 40)
+plt.show()
+inches > 4
+
+mean = [0, 2]
+cov = [[1, 2], [2,5]]
+rand = np.random.RandomState(42)
+X = rand.multivariate_normal(mean, cov, 100)
+X.shape
+
+plt.scatter(X[:, 0], X[:,1])
+plt.show()
+
+indices = np.random.choice(X.shape[0], 20, replace=False)
+selection = X[indices]
+
+
+plt.scatter(X[:, 0], X[:, 1], alpha=0.3)
+plt.scatter(selection[:, 0], selection[:, 1],  s=200)
 plt.show()
